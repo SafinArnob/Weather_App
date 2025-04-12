@@ -6,10 +6,13 @@ body {
 .weather-card {
   max-width: 400px;
   min-height: 500px;
+  transition: all 0.3s ease; /* Added for smooth theme changes */
 }
 
 .weather-icon {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  width: 120px;
+  transition: transform 0.3s ease; /* Added for icon animations */
 }
 
 .time-display {
@@ -19,16 +22,19 @@ body {
 
 .day-night-icon.fa-sun {
   color: #FFA500;
+  transition: color 0.5s ease; /* Added for day/night transitions */
 }
 
 .day-night-icon.fa-moon {
   color: #4682B4;
+  transition: color 0.5s ease; /* Added for day/night transitions */
 }
 
 .weather-stat {
   color: white;
   font-weight: bold;
   background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 50%);
+  transition: transform 0.3s ease; /* Added for stat box animations */
 }
 
 .clouds-stat {
@@ -46,16 +52,76 @@ body {
 .country-flag {
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease; /* Added for flag transitions */
 }
 
 .error-animation {
   animation: errorEffect 0.3s linear 1;
 }
 
+/* Temperature Display Styles */
+.temp-value {
+  display: inline-block;
+  transition: all 0.3s ease; /* Ensures smooth number changes */
+}
+
+.temp-value::after {
+  
+  font-size: 0.6em;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+/* New Animations */
 @keyframes errorEffect {
   0% { transform: translate(10px, 5px); }
   25% { transform: translate(-5px, 0); }
   50% { transform: translate(8px, 2px); }
   75% { transform: translate(-2px, 5px); }
   100% { transform: translate(0, 0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Animation Classes */
+.temp-changing {
+  animation: pulse 0.5s ease;
+}
+
+.icon-changing {
+  animation: fadeIn 0.7s ease;
+}
+
+.stat-changing {
+  animation: gentleBounce 0.5s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .weather-card {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  
+  .weather-icon {
+    width: 80px;
+  }
+  
+  .temp-value {
+    font-size: 3rem;
+  }
 }
