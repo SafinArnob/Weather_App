@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <form>
+            <input type="text" id="name" autocomplete="off" placeholder="Enter your city name">
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <section class="result">
+            <figure class="name">
+                <figcaption>Your City</figcaption> 
+                <i class="fa-solid fa-earth-americas fa-lg"></i>
+                <img class="country-flag" style="display: none;">
+            </figure>
+
+            <figure class="temperature">
+                <img src="" alt="Weather icon" class="weather-icon">
+                <figcaption>
+                    <span class="temp-value">--</span>
+                    <span class="current-time"></span>
+                    <i class="day-night-icon fa-solid"></i>
+                </figcaption> 
+            </figure>
+            <p class="description">--</p>
+            <ul class="weather-stats">
+                <li>
+                    <span>Clouds</span>
+                    <i class="fa-solid fa-cloud"></i>
+                    <span id="clouds">--</span>%
+                </li>
+                <li>
+                    <span>Humidity</span>
+                    <i class="fa-solid fa-droplet"></i>
+                    <span id="humidity">--</span>%
+                </li>
+                <li>
+                    <span>Pressure</span>
+                    <i class="fa-solid fa-gauge"></i>
+                    <span id="pressure">--</span>hPa
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
